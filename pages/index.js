@@ -1,8 +1,9 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { FormattedMessage } from 'react-intl';
 import { useRouter, Router } from 'next/router';
+import Head from 'next/head';
 import Link from 'next/link';
 
 import Settings from '../components/settings';
@@ -25,16 +26,27 @@ const Note = styled.p`
   font-size: 0.6rem;
 `;
 
+const mobileUA = /Android|webOS|iPhone|iPad|iPod/im;
+
 const Index = ({ hasParam, isMobile }) => {
   if (!hasParam) {
     Router.push('/getting-started');
   }
 
+  const [mobile, setMobile] = useState(isMobile);
   const { query } = useRouter();
   const link = `kyash://qr/u/${query.link}`;
 
+  useEffect(() => {
+    setMobile(window.navigator.userAgent.search(mobileUA) !== -1);
+  }, []);
+
   return (
     <Fragment>
+      <Head>
+        <title>{query.id} - Kyash.now.sh</title>
+      </Head>
+
       <Container>
         <h2>
           <FormattedMessage
@@ -57,7 +69,7 @@ const Index = ({ hasParam, isMobile }) => {
           />
         </Image>
 
-        {isMobile && (
+        {mobile && (
           <Button href={link}>
             <FormattedMessage id="qr.link" />
           </Button>
@@ -80,8 +92,6 @@ const Index = ({ hasParam, isMobile }) => {
     </Fragment>
   );
 };
-
-const mobileUA = /Android|webOS|iPhone|iPad|iPod/im;
 
 Index.getInitialProps = ({ query, res, req }) => {
   const hasParam = !!query.id && !!query.link;

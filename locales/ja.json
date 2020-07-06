@@ -1,0 +1,16 @@
+{
+  "home.description": "あなたのKyashリンクを簡単に作成",
+  "home.note": "* このサイトはKyashユーザーが作成したもので、Kyash Inc.とは無関係です。",
+  "home.create_url": "リンクを作成",
+  "home.id": "1. あなたのKyash ID (アカウント > Kyash ID)",
+  "home.link": "2. あなたのQRリンク（送金・請求 > QRコード）",
+  "home.import": "または、KyashのQRコード画像から読み取る",
+  "home.import-error": "エラー: QRコードが読み取れませんでした。正しいQRコードかご確認ください。",
+  "home.create": "作成",
+  "home.create-error": "エラー: 値が不正です。Kyash IDが正しいか、QRリンクが正しいかご確認ください。",
+  "qr.title": "{id} さんの Kyash リンク",
+  "qr.link": "Kyash アプリを開く",
+  "qr.note1": "* このサイトはKyash Inc.や記載されているアカウントとは無関係です。",
+  "qr.note2": "アプリを開いたらリンクとIDが一致している事をお確かめください。",
+  "qr.create": "あなたの Kyash リンクを作成する"
+}

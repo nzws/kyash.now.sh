@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "alias": ["kyash.now.sh"],
+  "regions": ["hnd1"],
+  "public": false,
+  "github": { "silent": true }
+}
